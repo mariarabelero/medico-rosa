@@ -1,0 +1,149 @@
+//    Created on : 19/09/2013, 08:40:56 AM
+//    Author     : angie
+
+//@screen-phone: 480px;
+//@screen-tablet:  768px;
+//@screen-desktop:  992px;
+//@screen-lg-desktop:  1200px;
+
+//-----------------------------------------------------------------------------------
+//	2.	NAV
+//-----------------------------------------------------------------------------------
+.navbar-brand {
+    .transition(all 1s linear);
+    @media (min-width:@grid-float-breakpoint) {
+        .hidden;
+    }
+}
+.navbar {
+    margin-bottom: 0;
+    border: none;
+    #gradient.vertical-three-colors(#ededed,#f6f6f6,50%,white);
+    border-radius: 0;
+    font-weight: @nav-font-weight;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    @media (max-width: @grid-float-breakpoint) {
+        border-bottom: 4px solid @golden;
+    }
+    @media (min-width: @grid-float-breakpoint) and (max-width: @screen-desktop) {
+        .size(100%,125px);
+    }
+    @media (min-width: @screen-desktop) {
+        .size(100%,100px);
+    }
+    #main-menu {
+        z-index: 100;
+        .transition(all 1s linear);
+        > li > a {
+            color: #777;
+            text-align: center;
+            border-radius: 6px;
+            @trans: all .5s,color .5s, background .5s, box-shadow .8s ease-in-out;
+            .transition(@trans);
+            .translate3d(0, 0, 0);
+            .box-shadow(0 0 0 36px transparent);
+            &:hover,
+                &:focus,
+                &:active,
+                &.active {
+                text-shadow:1px 1px 0 #fff, 2px 2px 0 #808d93;
+                background-color: fadeout(#ddd,50%);
+                border-color: darken(@golden, 12%);
+                border-radius: 6px;
+                box-shadow: 0 0 0 0 fadeout(#ddd,60%);
+                .transition(box-shadow .8s ease-in-out);
+            }
+        }
+        .logo {
+            width:2%;
+            transition: none 0s ease 0s;
+            a {
+                &:hover,
+                    &:focus,
+                    &:active,
+                    &.active {
+                    background-color: transparent;
+                    border-color: transparent;
+                    box-shadow: 0 0 0 0 transparent;
+                }
+                img {
+                    .img-responsive;
+                    position:absolute;
+                    .transition(all .8s ease-in-out);
+                    @media (min-width:  @screen-tablet) and (max-width: @screen-desktop) {
+                        width:76px;
+                        top:-1em;
+                    }
+                    @media (min-width:  @screen-desktop) {
+                        width:45%;
+                        top:-2em;
+                        left:23%;
+                    }
+                }
+                img#logo-bottom {
+                    position:absolute;
+                    top:3.65em;
+                    @media (min-width:  @screen-tablet) and (max-width: @screen-desktop) {
+                        /*top:3.3195em;*/
+                        .hidden;
+                    }
+                }
+            }
+            @media (max-width:@screen-tablet) {
+                .hidden;
+            }
+        }
+
+        @media (min-width: @grid-float-breakpoint) {
+            > li {
+                display: table-cell;
+                width: 1%;
+            }
+        }
+        @media (min-width:  @grid-float-breakpoint) and (max-width: @screen-desktop) {
+            padding-top: 8px;
+            padding-bottom: 8px;
+            font-size: 1em;
+        }
+        @media (min-width: @screen-desktop) {
+            margin-top: 15px;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            font-size: 1.2em;
+        }
+    }
+}
+
+//submenu
+#sub-menu {
+    background-color: @golden;
+    .box-shadow(0px 5px 10px rgba(0, 0, 0, 0.2) inset);
+    .container;
+    .btn {
+        border:none;
+        margin-right:5px;
+    }
+    @media (max-width: @grid-float-breakpoint) {
+        .btn {
+            width: 48%;
+        }
+    }
+}
+
+//traslicent navigation
+#top-header {
+    .hidden;
+}
+
+// index navigation
+#home-nav {
+    border-bottom:4px solid @gray-lighter;
+    .logo img {
+        @media (min-width:  @screen-desktop) {
+            width:43%;
+            left:29%;
+        }
+    }
+}

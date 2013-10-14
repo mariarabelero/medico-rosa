@@ -1,0 +1,304 @@
+//    Created on : 13/09/2013, 08:34:24 AM
+//    Author     : angie
+
+// Core variables and mixins
+@import "../less/variables.less";
+@import "../less/mixins.less";
+
+// Reset
+@import "../less/normalize.less";
+@import "../less/print.less";
+
+// Core CSS
+@import "../less/scaffolding.less";
+@import "../less/type.less";
+@import "../less/grid.less";
+@import "../less/forms.less";
+@import "../less/buttons.less";
+
+// Components
+@import "../less/component-animations.less";
+@import "../less/glyphicons.less";
+@import "../less/navs.less";
+@import "../less/navbar.less";
+@import "../less/breadcrumbs.less";
+@import "../less/pagination.less";
+@import "../less/labels.less";
+@import "../less/badges.less";
+@import "../less/thumbnails.less";
+@import "../less/alerts.less";
+@import "../less/media.less";
+@import "../less/close.less";
+@import "../less/panels.less";
+@import "../less/list-group.less";
+@import "../less/wells.less";
+
+// Components w/ JavaScript
+@import "../less/modals.less";
+@import "../less/tooltip.less";
+@import "../less/carousel.less";
+
+// Utility classes
+@import "../less/utilities.less";
+@import "../less/responsive-utilities.less";
+
+// Utility classes
+@import "myhelpers.less";
+
+//PArallax Slider
+@import "navigation.less";
+@import "slider.less";
+@import "calendar.less";
+@import "footer.less";
+
+//@screen-phone: 480px;
+//@screen-tablet:  768px;
+//@screen-desktop:  992px;
+//@screen-lg-desktop:  1200px;
+
+//-----------------------------------------------------------------------------------
+//	1.	BASIC
+//-----------------------------------------------------------------------------------
+@font-face {
+    font-family: Socialglyphs;
+    font-family: "Socialglyphs";
+    src: url(../fonts/type/socialglyphs-regular.svg#socialglyphs-regular) format("svg"),
+        url(../fonts/type/socialglyphs-regular.ttf) format("truetype"),
+        url(../fonts/type/socialglyphs-regular.woff) format("woff"),
+        url(../fonts/type/socialglyphs-regular.eot);
+}
+body {
+    -webkit-backface-visibility: hidden;
+    background: url(../img/backgound.jpg) no-repeat top left fixed;
+    background-size: cover;
+}
+h4 {
+    font-family: Socialglyphs, sans-serif;
+    padding: 0;
+    margin: 0;
+    color: white;
+    vertical-align: center;
+    .square(30px);
+    display: inline-block;
+    text-align: center;
+}
+.social {
+    font-size:  @font-size-base;
+    display: block;
+    a {
+        .square(30px);
+        background: fade(@golden,70%);
+        border-radius: 4px;
+        display: inline-block;
+        .transition(color .5s lineal);
+        &:hover, &:focus, &:active {
+            background: fadeout(@brand-primary,30%);
+            .transition(color .5s lineal);
+        }
+    }
+}
+a {
+    &:hover, &:focus, &:active {
+        text-decoration: none;
+    }
+}
+.mapa {border-radius: 45%;}
+#map-canvas {height: 350px }
+.direccion { width: 80%; margin: 2em auto;}
+//-----------------------------------------------------------------------------------
+//	1.	GENERAL
+//-----------------------------------------------------------------------------------
+#up {
+    .square(40px);
+    color:white;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    border-radius: 4px;
+    background: fade(@golden,70%);
+    padding-top: 10px;
+    padding-left: 13px;
+    z-index: 1000;
+}
+.btn {
+    .gloss;
+    border:1px solid #eee;
+    border:1px solid #aaa;
+    .transition(all 0.3s linear);
+    .btn-default {
+        background: transparent;
+    }
+    &:hover, &:focus {
+        .box-shadow(rgba(0,0,0,0.7) 0px 5px 15px);
+    }
+    &:active {
+        @btn-active: rgba(255,255,255,0.25) 0px 1px 0px, inset rgba(255,255,255,0.03) 0px 20px 0px, inset rgba(0,0,0,0.15) 0px -20px 20px, inset rgba(255,255,255,0.05) 0px 20px 20px;
+        .box-shadow(@btn-active);
+        text-shadow:1px 1px 1px #eee;
+    }
+    &:hover .light, &:hover .light-lg{
+        padding:1px 5px;
+        .animation(shine 0.6s linear);
+        left:25px;
+    }
+}
+//-----------------------------------------------------------------------------------
+//	3.	Hero
+//-----------------------------------------------------------------------------------
+#hero {
+    .container;
+    color: white;
+    text-shadow: 0 5px 2px rgba(0, 0, 0, 0.3);
+    .box-shadow(0px 10px 10px rgba(0, 0, 0, 0.3) inset);
+    text-align:center;
+    p {
+        font-style: italic;
+        margin-bottom: 11em;
+    }
+    @media (min-width:  @screen-phone) {
+        height: 15em;
+        text-align: left;
+        padding-top: 5rem;
+        h1 {
+            font-size: 56px;
+        }
+    }
+}
+//-----------------------------------------------------------------------------------
+//	3.	Content
+//-----------------------------------------------------------------------------------
+#content {
+    background:@fondo;
+    padding-bottom: 4em;
+    padding-top: 4em;
+    border-bottom: 4px solid @golden;
+    @section-shadow:0px -10px 7px 0px rgba(0, 0, 0, 0.2), 0px .4px 0px 0px rgb(121, 125, 113) inset;
+    .box-shadow(@section-shadow);
+    .thumbnail {
+        text-align: center;
+        font-size: ceil(@font-size-base * 1.25);
+        font-weight: @nav-font-weight;
+        text-spacing: 1px;
+        background-color: transparent;
+    }
+}
+//-----------------------------------------------------------------------------------
+//	4.	Form
+//-----------------------------------------------------------------------------------
+form {
+    padding: 15px;
+    padding-bottom: 60px;
+}
+.form-control {
+    position: relative;
+    font-size: 16px;
+    height: auto;
+    padding: 10px;
+    margin-bottom: 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.form-control:focus {
+    z-index: 2;
+}
+input, textarea {
+    .form-control;
+}
+form input[type="password"],form input[type="text"], select, textarea,.form-heading,
+.checkbox  {
+    margin-bottom: 10px;
+}
+textarea {
+    width: 96%;
+    height: 200px;
+}
+.form-heading {
+    text-spacing: 2px;
+    text-align: center;
+}
+.checkbox {
+    font-weight: normal;
+}
+
+.form-signin{
+    max-width: 330px;
+    margin: 0 auto;
+}
+.form-signin input[type="text"] {
+    margin-bottom: -1px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.form-signin input[type="password"]{
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+//-----------------------------------------------------------------------------------
+//	5.	Offcanvas
+//-----------------------------------------------------------------------------------
+.sidebar-nav {
+    font-size: 16px;
+    .transition(all 0.3s linear);
+}
+@media screen and (max-width: 768px) {
+    .row-offcanvas {
+        position: relative;
+        -webkit-transition: all 0.25s ease-out;
+        -moz-transition: all 0.25s ease-out;
+        transition: all 0.25s ease-out;
+    }
+
+    .row-offcanvas-right
+    .sidebar-offcanvas {
+        right: -50%;
+    }
+
+    .row-offcanvas-left
+    .sidebar-offcanvas {
+        left: -50%;
+    }
+
+    .row-offcanvas-right.active {
+        right: 50%;
+    }
+
+    .row-offcanvas-left.active {
+        left: 50%;
+    }
+
+    .sidebar-offcanvas {
+        position: absolute;
+        top: 0;
+        width: 50%;
+    }
+}
+.list-group {
+    width: 80%;
+    margin: 0 auto;
+}
+//-----------------------------------------------------------------------------------
+//	5.	Horario
+//-----------------------------------------------------------------------------------
+#horario {
+    .borde;
+    padding: 20px;
+    width:23.5em;
+    text-transform: uppercase;
+    min-height: 50px;
+    box-shadow: 0px -1px rgba(255, 255, 255, 0.2) inset !important;
+    line-height: 24px;
+    .hora{
+        font-size: 20px;
+        width: 50px;
+        display: inline-block;
+        text-align: right;
+    }
+    .horario-row {
+        border-bottom: 2px solid @gray-light;
+    }
+    span {
+        margin-left: 8px;
+    }
+}

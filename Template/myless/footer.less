@@ -1,0 +1,153 @@
+//    Created on : 19/09/2013, 08:33:20 PM
+//   Author     : angie
+//-----------------------------------------------------------------------------------
+//	4.	Footer
+//-----------------------------------------------------------------------------------
+.perspective {
+    -webkit-perspective: 800px;
+    -moz-perspective: 800px;
+    perspective: 800px;
+}
+.transform-origin (@porcent1, @porcent2){
+    -webkit-transform-origin: @porcent1 @porcent2;
+    -moz-transform-origin: @porcent1 @porcent2;
+    transform-origin: @porcent1 @porcent2;
+}
+.transform-style(@style:preserve-3d) {
+    -webkit-transform-style: @style;
+    -moz-transform-style: @style;
+    transform-style: @style;
+}
+.transformx(@grados:270deg){
+    -webkit-transform: rotateX(@grados);
+    -moz-transform: rotateX(@grados);
+    transform: rotateX(@grados);
+}
+
+footer{
+    line-height: 2em;
+    padding-top: 1.8rem;
+    text-shadow:
+        rgba(245, 245, 255, 0.35) 0 0px 0px,
+        rgba(0, 0, 30, 0.05) 0px 2px 2px,
+        rgba(0, 0, 30, 0.20) 0px 2px 1px,
+        rgba(0, 0, 0, 0.08) -5px 5px 2px;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    .perspective;
+    .box-shadow(0px 10px 10px rgba(0, 0, 0, 0.3) inset);
+    .transition(all .8s ease-in-out);
+    .uno, .dos, .tres  {
+        .make-xs-column(4);
+    }
+    img {
+        .img-responsive;
+    }
+    p {
+        margin-top: .5em;
+        margin-right: 50px;
+        color:@gray-dark;
+    }
+    h4 {
+        font-size: ceil(@font-size-base * 1.70);
+    }
+    hr {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        height: 6px;
+        border: 0;
+        box-shadow: inset 0 6px 6px -6px rgba(0, 0, 0, 0.4);
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+    }
+    a:hover,
+        a:focus,
+        a:active   {
+        color:fadeout(white, 10%);
+        text-shadow:rgba(0, 0, 0, 0.6) 0px 3px 3px;
+        .transition(all .5s ease-in-out);
+    }
+    .breadcrumb {
+        background: transparent;
+    }
+    .social {
+        display: block;
+        .center-block;
+        a {
+            background: fade(@text,70%);
+        }
+    }
+    .sub-footer {
+        #gradient.vertical(rgba(0, 0, 0, 0.1),rgba(0, 0, 0, 0.4));
+        .box-shadow(@content-boxshadow);
+        a {
+            text-shadow: 0 1px 3px #143157;
+        }
+        //breadcrum
+        a span {
+            position: relative;
+            display: inline-block;
+            padding-left: 3px;
+            padding-right: 3px;
+            color:white;
+            background: fadeout(@golden, 30%);
+            /*#gradient.vertical-three-colors(rgba(252,234,187,1),rgba(248,181,0,1),50%,rgba(251,223,147,1));*/
+            .box-shadow(inset 0 3px @naranja);
+            .transition(background 0.6s);
+            .transform-origin(50, 0);
+            .transform-style;
+            .transform-origin(0, 50);
+            border-radius:3px;
+            &::before {
+                position: absolute;
+                top: 0;
+                left: 0;
+                .square(100%);
+                background: @fondo;
+                color: @anaranjado;
+                content: attr(data-hover);
+                .transformx;
+                .transition(transform 0.6s);
+                .transform-origin (0, 0);
+                pointer-events: none;
+                text-align:center;
+            }
+        }
+        &:hover span,
+            & a:focus span {
+            background: fadeout( @naranja, 30%);
+            color: white;
+            .box-shadow(inset 0 3px @fondo);
+        }
+        a:hover span::before,
+            a:focus span::before {
+            .transformx(10deg);
+        }
+    }
+    @media (max-width: @screen-phone) {
+        text-align: center;
+        line-height: 2;
+        margin-bottom: 0;
+        .uno, .dos, .tres  {
+            .make-xs-column(12);
+        }
+    }
+    @media (max-width: @screen-lg-desktop) {
+        .breadcrumb, p {
+            text-align: center;
+            line-height: 2;
+            margin-bottom: 0;
+        }
+    }
+    @media (min-width: @screen-lg-desktop){
+        .breadcrumb {
+            .pull-left;
+        }
+        p {
+            .pull-right;
+        }
+    }
+}
+

@@ -1,0 +1,298 @@
+/* HEADER ------------- */
+//jQuery(window).scroll(function() {
+//    var top = jQuery(window).scrollTop();
+//    if (top > 112) // height of float header
+//        jQuery(function() {
+//            jQuery('#header').css('display', 'block').fadeIn();
+//        })
+//    else {
+//        jQuery('#header').css('display', 'none');
+//    }
+//})
+
+ // Back To Top ------------------- */
+    $('#footer-menu-back-to-top a').click(function() {
+        jQuery('html, body').animate({scrollTop: 0}, 300);
+        return false;
+    });
+// When the window is scrolling
+    $(window).scroll(function() {
+        // Update the header
+        updateHeader();
+    });
+// Update header
+function updateHeader() {
+
+    if ($(window).width() > 960) {
+        // Get the current scroll height
+        var scrollHeight = $(this).scrollTop();
+
+        if (scrollHeight < 130) {
+            showLargeHeader();
+        }
+        if (scrollHeight >= 130) {
+            showSmallHeader();
+        }
+    }
+
+}
+/**
+ * Show Large Header
+ */
+function showLargeHeader() {
+    var header = $('#header');
+    if (header.hasClass('header-small')) {
+        header.removeClass('header-small');
+        header.addClass('header-large');
+        $('#content div').first().css({'padding-top': '0px'});
+    }
+}
+/**
+ * Show Large Header
+ */
+function showSmallHeader() {
+    var header = $('#header');
+    if (header.hasClass('header-large')) {
+        header.css({top: '-40px'});
+        header.removeClass('header-large');
+        header.addClass('header-small');
+        header.stop().animate({top: '0px'}, 'fast');
+        $('#content div').first().css({'padding-top': '150px'});
+    }
+}
+// ------------------- Parallax --------------------- */
+
+jQuery(document).ready(function($) {
+    $('#da-slider').cslider({
+        autoplay: true,
+        bgincrement: 50
+    });
+});
+
+
+    // PARALLAXS ------------- */
+    $(document).ready(function() {
+        // cache the window object
+        $window = $(window);
+
+        $('section[data-type="background"]').each(function() {
+            // declare the variable to affect the defined data-type
+            var $scroll = $(this);
+
+            $(window).scroll(function() {
+                // HTML5 proves useful for helping with creating JS functions!
+                // also, negative value because we're scrolling upwards
+                var yPos = -($window.scrollTop() / $scroll.data('speed'));
+
+                // background position
+                var coords = '50% ' + yPos + 'px';
+
+                // move the background
+                $scroll.css({backgroundPosition: coords});
+            }); // end window scroll
+        });  // end section function
+    }); // close out script
+.da-slide{
+ h2 {
+        width: 50%;
+        top: 4.3em;
+        font-size: 3.5rem;
+        /* letter-spacing: .08em;
+         font-size: 4.7em;
+         .heading-shadow;*/
+        font-family: @font-family-sans-serif;
+        text-transform: uppercase;
+        white-space: nowrap;
+        z-index: 2;
+    }
+ p{
+        overflow: hidden;
+        top: 11.7em;
+        width: 45%;
+        font-size: 1.9rem;
+        /*       padding: 1.5em;
+                background: darken(fade(@naranja, 50%), 20%);
+                box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1) inset;*/
+        border-radius: 4px;
+        z-index: 2;
+    }
+}
+por eso ponemos a su
+                        dispocisi&oacute;n nuestros excelentes equipo de especialistas en el &aacute;rea de la salud.
+
+h2, p {
+        width: 45%;
+        background: darken(fade(@naranja, 50%), 20%);
+        /*box-shadow: -1px 1px 10px rgba(0, 0, 0, 0.1) inset;*/
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b3000000', endColorstr='#b3000000',GradientType=0 );
+        z-index: 2;
+    }
+    h2 {
+        /*width: 50%;*/
+        /*top: 4.3em;*/
+        /*font-size: 3.5rem;*/
+        /*width: 45%;*/
+        /*top: 60px;*/
+        margin-left: -20px;
+        padding: 28px 20px;
+        /*font-size: 66px;*/
+        font-family: @font-family-sans-serif;
+        font-weight: 700;
+        text-transform: uppercase;
+        /*text-shadow: 1px 1px 1px rgba(0,0,0,0.1);*/
+        white-space: nowrap;
+
+        /*padding: 1.5em;*/
+        /*        background: darken(fade(@naranja, 50%), 20%);
+                box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1) inset;*/
+
+        /*background: rgba(0,0,0,.7);*/
+        /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b3000000', endColorstr='#b3000000',GradientType=0 );*/
+        /*z-index: 2;*/
+    }
+    p{
+        top: 5.73em;
+        /*top: 156px;*/
+        /*.size(45%,150px);*/
+        height: 150px;
+        margin-left: -20px;
+        padding: 28px 20px 18px 20px;
+        font-size: 1.9rem;
+        /*font-size: 18px;*/
+        line-height: 26px;
+        font-weight: 400;
+        /*font-style: italic;*/
+        border-radius: 4px;
+        overflow: hidden;
+        /*background: rgba(0,0,0,.7);*/
+        /*        background: darken(fade(@naranja, 50%), 20%);
+                box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1) inset;
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b3000000', endColorstr='#b3000000',GradientType=0 );  IE6-8
+                z-index: 2;*/
+    }
+
+
+ h2 {
+        margin-left: -20px;
+        padding: 28px 20px 0;
+        font-size: 56px;
+        /*font-family: @font-family-sans-serif;*/
+        /*font-weight: 700;*/
+        /*text-transform: uppercase;*/
+        /*text-shadow: 1px 1px 1px rgba(0,0,0,0.1);*/
+        white-space: nowrap;
+    }
+ p{
+        top: 5.73em;
+        height: 150px;
+        margin-left: -20px;
+        padding: 28px 20px 18px 20px;
+        font-size: 1.9rem;
+        /*font-size: 18px;*/
+        line-height: 26px;
+        /*font-weight: 400;*/
+        font-style: italic;
+        border-radius: 4px;
+        overflow: hidden;
+    }
+
+/*                text-shadow: 2px 8px 6px rgba(0,0,0,0.2),
+                                    0px -5px 35px rgba(255,255,255,0.3);*/
+
+                /*text-shadow: 0 1px #808d93, -1px 0 #cdd2d5, -1px 2px #808d93, -2px 1px #cdd2d5, -2px 3px #808d93, -3px 2px #cdd2d5, -3px 4px #808d93, -4px 3px #cdd2d5, -4px 5px #808d93, -5px 4px #cdd2d5, -5px 6px #808d93, -6px 5px #cdd2d5, -6px 7px #808d93, -7px 6px #cdd2d5, -7px 8px #808d93, -8px 7px #cdd2d5;*/
+                /*text-shadow: 3px 3px 0px #2c2e38, 5px 5px 0px #5c5f72;*/
+
+ /*color:@anaranjado;*/
+                /*text-shadow:1px 1px 1px @gray-light;*/
+                /*text-shadow: rgba(255,255,255,0.5) 0px 3px 3px;*/
+                /*text-shadow: 3px 3px 0px #2c2e38, 5px 5px 0px #5c5f72;*/
+
+                /*                -webkit-background-clip: text;
+                                -moz-background-clip: text;
+                                background-clip: text;
+                                color: transparent;
+                                text-shadow: rgba(255,255,255,0.5) 0px 3px 3px;*/
+
+
+<!--                <nav>
+                                    <ul class="nav nav-justified">
+                                        <li><a href="#"><span class="glyphicon glyphicon-user"></span>
+                                                Home</a></li>
+                                        <li><a href="#"><span class="glyphicon glyphicon-calendar"></span>
+                                                Services</a></li>
+                                        <li><a href="#">Downloads</a></li>
+                                        <li><a href="#">About</a></li>
+                                    </ul>
+                                </nav>-->
+
+nav{
+       .container;
+        .nav-justified  > li > a {
+            color:white;
+            font-weight: @nav-font-weight;
+            text-shadow:1px 1px 1px @gray;
+            padding:6px;
+            .transition(all .5s ease-in-out);
+            &:hover,
+                &:focus,
+                &:active,
+                &.active {
+                color:@naranja;
+                padding-top:2.5px;
+                padding-bottom:2.5px;
+                background-color: fadeout(white,70%);
+                box-shadow: 0 0 0 0 fadeout(white,60%);
+
+            }
+        }
+@media (max-width:@grid-float-breakpoint) {
+    .hidden;
+}
+@media (min-width:  @screen-desktop) {
+    height:2.3em;
+    nav {
+        .nav-justified  > li > a {
+            margin-top:-.3em;
+            font-size:@font-size-large;
+            &:hover,
+                &:focus,
+                &:active,
+                &.active {
+                color:@anaranjado;
+                text-shadow:1px 1px 1px @gray-light;
+            }
+        }
+    }
+}
+@media (min-width: @grid-float-breakpoint) {
+    .nav-justified  > li {
+        display: table-cell;
+        width: 1%;
+    }
+}
+
+
+#intro {
+    background: url(../img/pill.png) 50% 0 fixed;
+    height: 13em;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    /*box-shadow: 0 0 50px rgba(0,0,0,0.8);*/
+    padding: 100px 0;
+
+    .box-shadow(0px 10px 10px rgba(0, 0, 0, 0.3) inset);
+    /*    padding: 20px 30px 10px;
+    margin: 0px 20px 10px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);*/
+    /*    background-image: url("../img/hero-bg.png");
+        background-repeat: repeat;
+        background-attachment: scroll;
+        background-position: left top;
+        background-clip: border-box;
+        background-origin: padding-box;
+        background-size: auto auto;*/
+    @media (max-width:  @screen-phone) {
+        height: 8em;
+    }
+}
